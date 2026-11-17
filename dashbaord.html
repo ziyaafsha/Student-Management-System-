@@ -1,0 +1,204 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f4f8;
+        }
+
+        header {
+            background: #123b5d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            min-height: 90vh;
+        }
+
+        .sidebar {
+            width: 230px;
+            background: #163c5a;
+            padding: 25px 15px;
+        }
+
+        .sidebar h3 {
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .sidebar a:hover {
+            background: #2878a8;
+        }
+
+        .main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .welcome {
+            margin-bottom: 25px;
+            color: #123b5d;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #0001;
+        }
+
+        .card h3 {
+            color: #2878a8;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .upload-section {
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #0001;
+        }
+
+        input {
+            margin: 20px 0;
+        }
+
+        button {
+            background: #1675a9;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #123b5d;
+        }
+
+        #preview {
+            max-width: 250px;
+            display: none;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        @media(max-width: 650px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Brain Tumor Detection System</h1>
+    <p>Explainable AI using ResNet-50</p>
+</header>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h3>Dashboard</h3>
+        <a href="dashboard.html">Home</a>
+        <a href="student.html">Student Information</a>
+        <a href="#upload">Upload MRI Scan</a>
+        <a href="#about">About Project</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+    <div class="main">
+
+        <div class="welcome">
+            <h2>Welcome to the Dashboard!</h2>
+            <p>Upload an MRI image to perform AI-based brain tumor analysis.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>AI Model</h3>
+                <p>ResNet-50</p>
+            </div>
+
+            <div class="card">
+                <h3>Technology</h3>
+                <p>Deep Learning</p>
+            </div>
+
+            <div class="card">
+                <h3>System</h3>
+                <p>Brain Tumor Classification</p>
+            </div>
+
+        </div>
+
+        <div class="upload-section" id="upload">
+            <h2>Upload MRI Image</h2>
+            <p>Select a brain MRI image for analysis.</p>
+
+            <input type="file" id="imageInput" accept="image/*">
+
+            <br>
+
+            <img id="preview" alt="MRI Image Preview">
+
+            <br><br>
+
+            <button onclick="uploadImage()">Analyze Image</button>
+
+            <p id="message"></p>
+        </div>
+
+        <div class="upload-section" id="about">
+            <h2>About the Project</h2>
+            <p>
+                This project uses Explainable Artificial Intelligence
+                and the ResNet-50 deep learning model to classify
+                brain MRI images and provide visual explanations
+                of model predictions.
+            </p>
+        </div
